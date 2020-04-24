@@ -10,10 +10,7 @@
     <title>Accueil</title>
 </head>
 <body>
-    <header>
-    <button id='inscription'>Inscription</button>
-    <button id='connexion'>Connexion</button>
-    </header>
+    <?php include_once "include/header.php" ?>
     <main id='mainindex'>
     
     </main>
