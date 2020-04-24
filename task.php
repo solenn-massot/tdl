@@ -15,7 +15,7 @@ if(isset($_POST['function']) || isset($_GET['function']))
     switch($function)
     {
         case "getTD_done":
-            $id = $_POST['id_user'];
+            $id = $_SESSION["id"];
             $bdd->getTD_Done($id);
         break;
 
@@ -30,12 +30,12 @@ if(isset($_POST['function']) || isset($_GET['function']))
         break;
 
         case "getTD_finish":
-            $id = $_POST['id_user'];
+            $id = $_SESSION["id"];
             $bdd->getTD_Finish($id);
         break;
 
         case "add":
-            $id = $_POST['id_user'];
+            $id = $_SESSION["id"];
             $titre = $_POST['titre'];
             $description = $_POST['description'];
             $deadline = $_POST['deadline'];

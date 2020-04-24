@@ -16,7 +16,7 @@ function getTD_Done(){
     $.ajax({
         url: "task.php",
         method: "POST",
-        data : {'function' : 'getTD_done', 'id_user' : '1'},
+        data : {'function' : 'getTD_done'},
         datatype: "json",
     
         success: function (datatype) {
@@ -84,7 +84,7 @@ function getTD_Done(){
         $.ajax({
             url: "task.php",
             method: "POST",
-            data : {'function' : 'getTD_finish', 'id_user' : '1'},
+            data : {'function' : 'getTD_finish'},
             datatype: "json",
         
             success: function (datatype) {
@@ -136,7 +136,7 @@ function getTD_Done(){
         $.ajax({
             url: "task.php",
             method : "POST",
-            data : {'function' : 'add', 'id_user' : '1', 'titre' : titre, 'description' : description, 'deadline' : deadline},
+            data : {'function' : 'add', 'titre' : titre, 'description' : description, 'deadline' : deadline},
             datatype : "json",
         })
         getTD_Done();
