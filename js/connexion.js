@@ -42,13 +42,14 @@ function connexion(){
                 $("#sectionco").append("<p>Veuillez remplir tout les champs</p>");
             }
             if(datatype === "create"){
-                $("#sectionco").append("<p>Ce login n'éxiste pas veuillez créer un compte</p>");
+                $("#sectionco").append("<p>Ce login n'existe pas veuillez créer un compte</p>");
                 }
             if(datatype === "mdp"){
                 $("#sectionco").append("<p>Mot de passe incorrect</p>");
             }
             if(datatype === "co"){
                 $("#sectionco").append("<p>Vous êtes bien connecté</p>");
+                window.location = "todolist.php";
             }
         }
     })

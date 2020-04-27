@@ -18,7 +18,7 @@ function getTD_Done(){
         method: "POST",
         data : {'function' : 'getTD_done'},
         datatype: "json",
-    
+
         success: function (datatype) {
     
            var data = JSON.parse(datatype);
@@ -28,12 +28,12 @@ function getTD_Done(){
                 $.each(data[i], function (key,value) {
                     if(key !== "id")
                     {
-                        $('#to' + i + "").append("<b>" + key + "</b>" + ":" + value + '</br>');
+                        $('#to' + i + "").append("<b>" + key + "</b>" + ":" + value + '</br></div>');
                     } 
                     else if(key === "id")
                     {
-                        $('#to' + i + "").append("<button id='sup" + value + "'>Supprimer</button></br></div>");
-                        $('#to' + i + "").append("<button id='fin" + value + "'>C'est fait!</button></br></div>");
+                        $('#to' + i + "").append("<button class='button' id='sup" + value + "'>Supprimer</button></br>");
+                        $('#to' + i + "").append("<button class='button' id='fin" + value + "'>C'est fait!</button></br>");
     
                         suppTD(value);
     
@@ -111,13 +111,13 @@ function getTD_Done(){
     function Create(){
         $('#create').click(function(){
             $('body').append("<div class='form'>");
-            $('.form').append('<label for="titre">Titre</label>');
-            $('.form').append('<input type="text" name = "titre" id = "titre" required > ');
-            $('.form').append('<label for="description">Description</label>');
-            $('.form').append('<textarea row=5 name = "description" id = "description" required>');
-            $('.form').append('<label for="deadline">Deadline</label>');
-            $('.form').append('<input type="date" name = "deadline" id = "deadline" >');
-            $('.form').append('<button id="cre">Créer une nouvelle tâche</button>');
+            $('.form').append('<label for="titre">Titre</label></br>');
+            $('.form').append('<input type="text" name = "titre" id = "titre" required ></br> ');
+            $('.form').append('<label for="description">Description</label></br>');
+            $('.form').append('<textarea row=5 name = "description" id = "description" required></textarea></br>');
+            $('.form').append('<label for="deadline">Deadline</label></br>');
+            $('.form').append('<input type="date" name = "deadline" id = "deadline" ></br>');
+            $('.form').append('<button class="button" id="cre">Créer une nouvelle tâche</button>');
             $('body').append("</div>");
 
             create_task();
@@ -127,11 +127,10 @@ function getTD_Done(){
     function create_task()
     {
     $('#cre').click(function(){
-
-        console.log('coucou');
         var titre = document.getElementById("titre").value;
         var description = document.getElementById("description").value;
         var deadline = document.getElementById("deadline").value;
+        console.log(deadline);
 
         $.ajax({
             url: "task.php",

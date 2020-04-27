@@ -16,7 +16,7 @@ class bdd
     }
 
     public function getTD_Done($id){
-        $request = $this->connexion->prepare("SELECT taches.id, titre, description, date_crea, deadline, etat, users.login FROM taches INNER JOIN users ON taches.id_user = users.id WHERE taches.id_user = '$id' AND taches.etat = 'progress'");
+        $request = $this->connexion->prepare("SELECT titre, description, date_crea, deadline, etat, users.login,taches.id FROM taches INNER JOIN users ON taches.id_user = users.id WHERE taches.id_user = '$id' AND taches.etat = 'progress'");
         $request->execute();
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($resultat);
