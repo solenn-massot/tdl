@@ -48,11 +48,11 @@ class bdd
         $date = date('Y-m-d');
         if($deadline == "")
         {
-            $request = $this->connexion->prepare("INSERT INTO taches (id_user, titre, description, date_crea, etat) VALUES ('$id', '$titre', '$description', '$date', 'progress')");
+            $request = $this->connexion->prepare("INSERT INTO taches (id_user, titre, description, date_crea, etat) VALUES ('$id', \"".$titre."\", \"".$description."\", '$date', 'progress')");
         }
         else
         {
-            $request = $this->connexion->prepare("INSERT INTO taches (id_user, titre, description, date_crea, deadline, etat) VALUES ('$id', '$titre', '$description', '$date', '$deadline', 'progress')");
+            $request = $this->connexion->prepare("INSERT INTO taches (id_user, titre, description, date_crea, deadline, etat) VALUES ('$id', \"".$titre."\", \"".$description."\", '$date', '$deadline', 'progress')");
         }
         var_dump($request);
         $request->execute();

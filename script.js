@@ -112,7 +112,7 @@ function getTD_Done(){
         $('#create').click(function(){
             $('body').append("<div class='form'>");
             $('.form').append('<label for="titre">Titre</label></br>');
-            $('.form').append('<input type="text" name = "titre" id = "titre" required ></br> ');
+            $('.form').append('<input type="text" name = "titre" id = "titre_task" required ></br> ');
             $('.form').append('<label for="description">Description</label></br>');
             $('.form').append('<textarea row=5 name = "description" id = "description" required></textarea></br>');
             $('.form').append('<label for="deadline">Deadline</label></br>');
@@ -127,10 +127,9 @@ function getTD_Done(){
     function create_task()
     {
     $('#cre').click(function(){
-        var titre = document.getElementById("titre").value;
+        var titre = document.getElementById("titre_task").value;
         var description = document.getElementById("description").value;
         var deadline = document.getElementById("deadline").value;
-        
 
         $.ajax({
             url: "task.php",
