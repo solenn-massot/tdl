@@ -54,6 +54,7 @@ class bdd
         {
             $request = $this->connexion->prepare("INSERT INTO taches (id_user, titre, description, date_crea, deadline, etat) VALUES ('$id', '$titre', '$description', '$date', '$deadline', 'progress')");
         }
+        var_dump($request);
         $request->execute();
     }
 }

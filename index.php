@@ -15,6 +15,12 @@
     <?php include "include/header.php" ?>
     </header>
     <main id='mainindex'>
+        <?php if(isset($_SESSION))
+        {
+            header('Location:todolist.php');
+        }
+        ?>
     </main>
 
 </body>
+</html>

@@ -130,7 +130,7 @@ function getTD_Done(){
         var titre = document.getElementById("titre").value;
         var description = document.getElementById("description").value;
         var deadline = document.getElementById("deadline").value;
-        console.log(deadline);
+        
 
         $.ajax({
             url: "task.php",
