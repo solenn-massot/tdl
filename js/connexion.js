@@ -26,7 +26,7 @@ function inscription(){
                     $("#sectionsub").append("<p>Ce login est déjà utilisé</p>");
                 }
                 if(datatype === "ok"){
-                    $("#sectionsub").append("<p>Votre compte a bien était créée</p>");
+                    $("#sectionsub").append("<p>Votre compte a bien été créée</p>");
                 }
             }
         })

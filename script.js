@@ -24,7 +24,7 @@ function getTD_Done(){
            var data = JSON.parse(datatype);
     
             for (i = 0; i < data.length; i++) {
-                $('#todo').append("<div class='td' id='to" + i +"'>");
+                $('#todo').append("<div class='td' id='to" + i +"'>")
                 $.each(data[i], function (key,value) {
                     if(key !== "id")
                     {
@@ -32,8 +32,8 @@ function getTD_Done(){
                     } 
                     else if(key === "id")
                     {
-                        $('#to' + i + "").append("<button class='button' id='sup" + value + "'>Supprimer</button></br>");
-                        $('#to' + i + "").append("<button class='button' id='fin" + value + "'>C'est fait!</button></br>");
+                        $('#to' + i + "").append("<button class='btn waves-effect waves-light deep-purple darken-4' id='sup" + value + "'>Supprimer</button>");
+                        $('#to' + i + "").append("<button class='btn waves-effect waves-light deep-purple' id='fin" + value + "'>C'est fait!</button></br>");
     
                         suppTD(value);
     
@@ -110,14 +110,14 @@ function getTD_Done(){
 
     function Create(){
         $('#create').click(function(){
-            $('body').append("<div class='form'>");
+            $('#createtd').append("<div class='form'>");
             $('.form').append('<label for="titre">Titre</label></br>');
             $('.form').append('<input type="text" name = "titre" id = "titre_task" required ></br> ');
             $('.form').append('<label for="description">Description</label></br>');
             $('.form').append('<textarea row=5 name = "description" id = "description" required></textarea></br>');
             $('.form').append('<label for="deadline">Deadline</label></br>');
             $('.form').append('<input type="date" name = "deadline" id = "deadline" ></br>');
-            $('.form').append('<button class="button" id="cre">Créer une nouvelle tâche</button>');
+            $('.form').append('<button class="btn waves-effect waves-light deep-purple" id="cre">Créer une nouvelle tâche</button>');
             $('body').append("</div>");
 
             create_task();

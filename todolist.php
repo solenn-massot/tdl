@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='css/todolist.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Accueil</title>
 </head>
 
@@ -17,28 +17,34 @@
     <header>
         <?php include "include/header.php" ?>
     </header>
-    <main id='mainindex'>
+    <main class="container" id="mainindex">
+        <div class="row">
         <?php if (isset($_SESSION['id'])) {
         ?>
-            <section id="todo">
+            <section id="todo" class="col s12">
                 <h1>Votre liste de tâches à faire</h1>
 
-            </section>
+            </section></br>
 
-            <section id="done">
+            <section id="done" class="col s12">
                 <h1>Votre liste de tâches faites</h1>
 
             </section>
-            <button class="button" id="create">Créer une tâche</button>
+            <button class="btn waves-effect waves-light deep-purple" id="create">Créer une tâche</button>
+            <section id="createtd">
+
+            </section>
         <?php
         } else {
         ?>
             <section id="user">
-                <span>Merci de vous connecter pour pouvoir commencer à créer vos tâches</span>
+                <h1 class="text-align center">Merci de vous connecter pour pouvoir commencer à créer vos tâches</h1>
             </section>
         <?php
         }
         ?>
+        </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
