@@ -1,53 +1,58 @@
-$(document).ready(function(){
-    $('#inscription').click(function(){
+$(document).ready(function () {
+    $('#inscription').click(function () {
         $('#mainindex').empty();
         $('#mainindex').load('moduleco/inscription.html');
     });
-    $('#connexion').click(function(){
+    $('#connexion').click(function () {
         $('#mainindex').empty();
         $('#mainindex').load('moduleco/connexion.html');
     });
-    $('#subdone').click(function(){
+    $('#subdone').click(function () {
         $('#mainindex').empty();
         $('#mainindex').load('moduleco/connexion.html');
     });
 });
-function inscription(){
-        $.ajax({
-            method: "GET",
-            url: "user.php",
-            data: "login="+ $("#login").val() + "&password="+ $("#password").val() + "&type=insc",
-            datatype: "text",
-            success: function(datatype){
-                if(datatype === "miss"){
-                    $("#sectionsub").append("<p>Veuillez remplir tout les champs</p>");
-                }
-                if(datatype === "login"){
-                    $("#sectionsub").append("<p>Ce login est déjà utilisé</p>");
-                }
-                if(datatype === "ok"){
-                    $("#sectionsub").append("<p>Votre compte a bien été créée</p>");
-                }
-            }
-        })
-    }
-function connexion(){
+
+function inscription() {
     $.ajax({
         method: "GET",
         url: "user.php",
-        data: "login="+ $("#login").val() + "&password="+ $("#password").val() + "&type=co",
+        data: "login=" + $("#login").val() + "&password=" + $("#password").val() + "&type=insc",
         datatype: "text",
-        success: function(datatype){
-            if(datatype === "miss"){
+        success: function (datatype) {
+            if (datatype === "miss") {
+                $("#sectionsub").append("<p>Veuillez remplir tout les champs</p>");
+            }
+            if (datatype === "login") {
+                $("#sectionsub").append("<p>Ce login est déjà utilisé</p>");
+            }
+            if (datatype === "ok") {
+                $("#sectionsub").append("<p>Votre compte a bien été créée</p>");
+                $('#mainindex').empty();
+                $('#mainindex').load('moduleco/connexion.html');
+
+            }
+        }
+    })
+}
+
+function connexion() {
+    $.ajax({
+        method: "GET",
+        url: "user.php",
+        data: "login=" + $("#login").val() + "&password=" + $("#password").val() + "&type=co",
+        datatype: "text",
+        success: function (datatype) {
+            if (datatype === "miss") {
                 $("#sectionco").append("<p>Veuillez remplir tout les champs</p>");
             }
-            if(datatype === "create"){
+            if (datatype === "create") {
                 $("#sectionco").append("<p>Ce login n'existe pas veuillez créer un compte</p>");
-                }
-            if(datatype === "mdp"){
+            }
+            if (datatype === "mdp") {
                 $("#sectionco").append("<p>Mot de passe incorrect</p>");
             }
-            if(datatype === "co"){
+            if (datatype === "co") {
                 $("#sectionco").append("<p>Vous êtes bien connecté</p>");
                 window.location = "todolist.php";
             }
